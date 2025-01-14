@@ -373,3 +373,88 @@
 # print(racing_drone.race())              # The Speedster X1 racing drone is racing at a speed of 120 km/h.
 
 
+# ####Machine learning course:
+# ##to install any package in ctrl + back tik(below esc item)
+# import pandas as pd
+# import matplotlib.pyplot as plt
+# import seaborn as sns
+# ###To check the version of the sns
+# print(sns.__version__)
+
+# # with open(r"E:\NARC1\76-77-csv file.csv", "r") as Mz:
+# #     content = Mz.read()
+# #     print(content)
+
+# Maize = pd.read_csv(r"E:\NARC1\76-77-csv file.csv")  
+# print(Maize.head(5))
+# ###To check the datasets is any value is null or no data 
+# print(Maize.isnull())
+
+# ###To check how many values are null in the data sets specific variables
+# print(Maize.isnull().sum())
+# ###so calculate the percentage null value 
+# num_rows = Maize.shape[0]#### This helps to cailcualte the number of rows in the datasets
+# print(num_rows)
+# num_column= Maize.shape[1]
+# print(num_column)
+# ###This gives the percentage of the missing values
+# missing_null_val= Maize.isnull().sum()/Maize.shape[0]
+# print(type(missing_null_val))
+# ###To calcualte the total number of the null value of the data sets
+# Total_null_Val = Maize.isnull().sum().sum()
+# print(Total_null_Val)
+# ###3To calculate the total percentage of the null value of the datasets
+# In_percent = (Total_null_Val/num_rows*num_column)*100
+# print(In_percent)
+# ##Alternative code for this
+# Total_null_Val_percentage = (Maize.isnull().sum().sum())/(Maize.shape[0]*Maize.shape[1])
+# print(Total_null_Val_percentage)
+# ###To calcualte the total number of notnull value in the datasets 
+# Not_null = Maize.notnull().sum()
+# print(Not_null)
+# ###To create the not null value  heat map 
+# # sns.heatmap(Maize.notnull())
+# # plt.show()
+# # sns.heatmap(Maize.null())
+# # plt.show()
+# ##if the datasets is more than 50% datasets types at that time need to avoid and make data sets less than 50% missing value and then worked
+# ##to Delete the specific column of the datasets 
+# Newdata = Maize.drop(columns=["E:P"], inplace = True)
+# print(Newdata)
+# print(Maize.head(2))
+# ###This code completely eliminated the missing value
+# Maize.dropna(inplace=True)
+####To install the especific package 
+##pip install tensorflow matplotlib numpy pandas scikit-learn
+#Used of some important packages of pyhton for the different purpose 
+#Data manipulation: Polars, modin, pandas, vaex, Datatable, CupY ,Numpy
+#Data visulaization: Ploty, Altair, Matplotlib, Seaborn, Geoplotlib, pygal
+# Statistical analyisis : Scipy, PyMC3, pystan, statmodels, Liflines, Pingoiin
+#Machine learnining: Keras, Tensorflow, Scikit-leran, JAX, PyTorch, XGBoost
+#Natural Langugage processing: Polyglot, TextBlob, Pattern, Genism, NLTK, BERT, 
+#Data based operation: dask, PySpark, RAY, Koalas, Hadoop
+#Time series analysis: Sktime, Darts, AutoTS, Prophet, Kats
+#Webscrapping : Scrapy, Beautiful Soup, OCtoparse, Selenium 
+# import pandas as pd
+import matplotlib.pyplot as plt
+# import tensorflow as tf
+# print(tf.__version__)  #### Should output the version number, e.g., 2.18.0
+import cv2
+import numpy as np
+image_path = 'pE:\Python test\bikas.py'
+image = cv2.imread("E:\Python test\Blackgramphot.jpg")
+print(image)
+##To show the image 
+plt.imshow(image)
+plt.axis('off')
+plt.show()
+###To convert this image into specific RGB
+image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+plt.imshow(image_rgb)
+plt.axis('off')
+plt.show()
+
+
+lower_leaf = np.array([25, 40, 40])  # Lower HSV bounds for green
+upper_leaf = np.array([90, 255, 255])  # Upper HSV bounds for green
+mask_leaf = cv2.inRange(image_rgb, lower_leaf, upper_leaf)
